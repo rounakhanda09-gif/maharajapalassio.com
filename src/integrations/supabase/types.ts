@@ -14,134 +14,16 @@ export type Database = {
   }
   public: {
     Tables: {
-      enquiry_status_history: {
-        Row: {
-          changed_at: string
-          changed_by: string | null
-          enquiry_id: string
-          from_status: string | null
-          id: string
-          to_status: string
-        }
-        Insert: {
-          changed_at?: string
-          changed_by?: string | null
-          enquiry_id: string
-          from_status?: string | null
-          id?: string
-          to_status: string
-        }
-        Update: {
-          changed_at?: string
-          changed_by?: string | null
-          enquiry_id?: string
-          from_status?: string | null
-          id?: string
-          to_status?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "enquiry_status_history_enquiry_id_fkey"
-            columns: ["enquiry_id"]
-            isOneToOne: false
-            referencedRelation: "event_enquiries"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      event_enquiries: {
-        Row: {
-          created_at: string
-          event_type: string | null
-          id: string
-          message: string | null
-          name: string
-          phone: string
-          preferred_date: string | null
-          staff_note: string | null
-          status: string
-          updated_at: string
-        }
-        Insert: {
-          created_at?: string
-          event_type?: string | null
-          id?: string
-          message?: string | null
-          name: string
-          phone: string
-          preferred_date?: string | null
-          staff_note?: string | null
-          status?: string
-          updated_at?: string
-        }
-        Update: {
-          created_at?: string
-          event_type?: string | null
-          id?: string
-          message?: string | null
-          name?: string
-          phone?: string
-          preferred_date?: string | null
-          staff_note?: string | null
-          status?: string
-          updated_at?: string
-        }
-        Relationships: []
-      }
-      profiles: {
-        Row: {
-          created_at: string
-          full_name: string | null
-          id: string
-        }
-        Insert: {
-          created_at?: string
-          full_name?: string | null
-          id: string
-        }
-        Update: {
-          created_at?: string
-          full_name?: string | null
-          id?: string
-        }
-        Relationships: []
-      }
-      user_roles: {
-        Row: {
-          created_at: string
-          id: string
-          role: Database["public"]["Enums"]["app_role"]
-          user_id: string
-        }
-        Insert: {
-          created_at?: string
-          id?: string
-          role: Database["public"]["Enums"]["app_role"]
-          user_id: string
-        }
-        Update: {
-          created_at?: string
-          id?: string
-          role?: Database["public"]["Enums"]["app_role"]
-          user_id?: string
-        }
-        Relationships: []
-      }
+      [_ in never]: never
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      has_role: {
-        Args: {
-          _role: Database["public"]["Enums"]["app_role"]
-          _user_id: string
-        }
-        Returns: boolean
-      }
+      [_ in never]: never
     }
     Enums: {
-      app_role: "admin" | "staff"
+      [_ in never]: never
     }
     CompositeTypes: {
       [_ in never]: never
@@ -268,8 +150,6 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {
-      app_role: ["admin", "staff"],
-    },
+    Enums: {},
   },
 } as const
