@@ -8,6 +8,13 @@
       "when": 1790052609004,
       "tag": "0000_venue_backend_core",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1790056455502,
+      "tag": "0001_apply_pending",
+      "breakpoints": true
     }
   ]
 }

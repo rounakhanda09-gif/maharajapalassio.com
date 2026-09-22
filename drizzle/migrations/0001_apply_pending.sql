@@ -1,0 +1,1 @@
+COMMENT ON SCHEMA public IS 'Maharaja Palassio venue backend';
