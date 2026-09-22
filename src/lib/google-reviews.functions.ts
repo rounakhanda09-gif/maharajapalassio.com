@@ -141,7 +141,7 @@ export const getGoogleProfile = createServerFn({ method: "GET" }).handler(
 
     const lovableKey = process.env["LOVABLE_API_KEY"];
     const mapsKey = process.env["GOOGLE_MAPS_API_KEY"];
-    if (!lovableKey || !mapsKey) return cache?.data ?? null;
+    if (!lovableKey || !mapsKey) return cache?.data ?? FALLBACK_PROFILE;
 
     try {
       const res = await fetch(
@@ -167,7 +167,7 @@ export const getGoogleProfile = createServerFn({ method: "GET" }).handler(
 
       if (!res.ok) {
         console.error(`Google Places request failed [${res.status}]: ${await res.text()}`);
-        return cache?.data ?? null;
+        return cache?.data ?? FALLBACK_PROFILE;
       }
 
       const json = (await res.json()) as {
@@ -209,7 +209,7 @@ export const getGoogleProfile = createServerFn({ method: "GET" }).handler(
       const selected = all.filter((r) => r.name !== "Pawan SUN Infocom");
       const five = selected.filter((r) => r.rating === 5);
       const four = selected.filter((r) => r.rating === 4);
-      const reviews = [...five, ...four].slice(0, 2);
+      const reviews = withThreeReviews([...five, ...four].slice(0, 2));
       if (!reviews.some((r) => r.name === ANURAG_REVIEW.name)) {
         reviews.push(ANURAG_REVIEW);
       }
@@ -238,7 +238,7 @@ export const getGoogleProfile = createServerFn({ method: "GET" }).handler(
       return data;
     } catch (err) {
       console.error("Google Places request errored", err);
-      return cache?.data ?? null;
+      return cache?.data ?? FALLBACK_PROFILE;
     }
   },
 );
