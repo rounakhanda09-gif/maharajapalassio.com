@@ -209,10 +209,11 @@ export const getGoogleProfile = createServerFn({ method: "GET" }).handler(
       const selected = all.filter((r) => r.name !== "Pawan SUN Infocom");
       const five = selected.filter((r) => r.rating === 5);
       const four = selected.filter((r) => r.rating === 4);
-      const reviews = withThreeReviews([...five, ...four].slice(0, 2));
-      if (!reviews.some((r) => r.name === ANURAG_REVIEW.name)) {
-        reviews.push(ANURAG_REVIEW);
+      const picked = [...five, ...four].slice(0, 2);
+      if (!picked.some((r) => r.name === ANURAG_REVIEW.name)) {
+        picked.push(ANURAG_REVIEW);
       }
+      const reviews = withThreeReviews(picked);
 
       const phone = json.nationalPhoneNumber ?? json.internationalPhoneNumber ?? null;
 
