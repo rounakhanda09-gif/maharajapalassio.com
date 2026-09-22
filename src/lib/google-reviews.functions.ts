@@ -55,6 +55,61 @@ const ANURAG_REVIEW: GoogleReview = {
   url: "https://www.google.com/maps/contrib/103009745270297297220/reviews?hl=en-US",
 };
 
+/**
+ * The three genuine Google reviews the client approved, stored verbatim so the
+ * section always renders — on Netlify, on the final domain, and any time Google
+ * cannot be reached. Live Google data still takes precedence when available.
+ */
+const FALLBACK_REVIEWS: GoogleReview[] = [
+  {
+    quote:
+      "We booked this venue over the phone from overseas. We met the manager after 4 months of booking. The manager is very friendly, approachable and understands the need of the function very well. We had a great wedding function. Top service and quality of food was amazing. Thanks to all for making our function successful.",
+    name: "bhavnitsingh3",
+    rating: 5,
+    when: "2 years ago",
+    photo: null,
+    url: GOOGLE_SEARCH_REVIEWS_URL,
+  },
+  {
+    quote:
+      "Maharaja Palassio, with its stunning sky garden and terrace, offers a unique and memorable dining experience in Batala. The ambiance is elegant and sophisticated, perfect for special occasions. The menu features a diverse range of cuisines, and the service is impeccable, with attentive staff ensuring a seamless evening.",
+    name: "Nirpal Singh",
+    rating: 4,
+    when: "a year ago",
+    photo: null,
+    url: GOOGLE_SEARCH_REVIEWS_URL,
+  },
+  ANURAG_REVIEW,
+];
+
+/** Rating and business details shown when live Google data is unavailable. */
+const FALLBACK_PROFILE: GoogleProfile = {
+  rating: 4.0,
+  count: 140,
+  mapsUrl: GOOGLE_SEARCH_REVIEWS_URL,
+  reviewsUrl: GOOGLE_SEARCH_REVIEWS_URL,
+  business: {
+    name: null,
+    address: null,
+    phone: null,
+    phoneHref: null,
+    hours: [],
+    openNow: null,
+  },
+  reviews: FALLBACK_REVIEWS,
+};
+
+/** Always hand the page three reviews: live ones first, approved ones to fill. */
+function withThreeReviews(reviews: GoogleReview[]): GoogleReview[] {
+  const out = [...reviews];
+  for (const fb of FALLBACK_REVIEWS) {
+    if (out.length >= 3) break;
+    if (!out.some((r) => r.name === fb.name)) out.push(fb);
+  }
+  return out.slice(0, 3);
+}
+
+
 /** Collapse whitespace, cap length. Output is rendered as text by React. */
 function clean(text: string, max = 340) {
   const s = text.replace(/\s+/g, " ").trim();
