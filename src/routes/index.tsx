@@ -126,6 +126,13 @@ function HomePage() {
           <Reveal className="md:col-span-5">
             <p className="eyebrow">The House</p>
             <div className="gold-rule mt-4 w-16" />
+            <img
+              src={img.facade}
+              alt="Maharaja Palassio illuminated in the evening"
+              loading="lazy"
+              decoding="async"
+              className="mt-10 hidden aspect-[4/3] w-full object-cover md:block"
+            />
           </Reveal>
           <Reveal delay={150} className="md:col-span-7">
             <p className="font-display text-3xl sm:text-5xl leading-[1.15] text-balance">
