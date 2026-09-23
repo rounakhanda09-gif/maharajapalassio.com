@@ -2,7 +2,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logoAsset from "@/assets/Maharaja_Palassio_Logo.png.asset.json";
+import logoAsset from "@/assets/maharaja-palassio-header-logo.png.asset.json";
 
 const links = [
   { to: "/", label: "Home" },
