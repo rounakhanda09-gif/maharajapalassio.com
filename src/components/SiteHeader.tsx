@@ -2,6 +2,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logoAsset from "@/assets/Maharaja_Palassio_Logo.png.asset.json";
 
 const links = [
   { to: "/", label: "Home" },
@@ -36,13 +37,12 @@ export function SiteHeader() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 sm:px-8">
-        <Link to="/" aria-label="Maharaja Palassio home" className="group flex items-baseline gap-2">
-          <span className="font-display text-xl sm:text-2xl tracking-tight text-ivory">
-            Maharaja
-          </span>
-          <span className="font-display text-xl sm:text-2xl italic text-gold-soft">
-            Palassio
-          </span>
+        <Link to="/" aria-label="Maharaja Palassio home" className="flex items-center">
+          <img
+            src={logoAsset.url}
+            alt="Maharaja Palassio"
+            className="h-11 w-auto object-contain sm:h-14"
+          />
         </Link>
 
         <nav className="hidden md:flex items-center gap-6 lg:gap-8">
