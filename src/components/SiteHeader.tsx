@@ -2,7 +2,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logoAsset from "@/assets/maharaja-palassio-header-logo.png.asset.json";
+import logo from "@/assets/maharaja-palassio-logo.png";
 
 const links = [
   { to: "/", label: "Home" },
@@ -39,7 +39,7 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 sm:px-8">
         <Link to="/" aria-label="Maharaja Palassio home" className="flex shrink-0 items-center">
           <img
-            src={logoAsset.url}
+            src={logo}
             alt="Maharaja Palassio"
             className="h-auto w-28 object-contain sm:w-32 lg:w-36"
           />

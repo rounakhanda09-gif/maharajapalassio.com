@@ -9,6 +9,7 @@ import { FaqAccordion } from "@/components/FaqAccordion";
 import { Reviews, Stars } from "@/components/Reviews";
 import { RATING } from "@/lib/reviews";
 import { getGoogleProfile } from "@/lib/google-reviews.functions";
+import houseSectionPhoto from "@/assets/house-section-photo.jpg";
 
 export const Route = createFileRoute("/")({
   loader: () => getGoogleProfile(),
@@ -122,16 +123,16 @@ function HomePage() {
 
       {/* INTRO */}
       <section className="px-6 sm:px-12 py-24 sm:py-36">
-        <div className="mx-auto max-w-6xl grid gap-12 md:grid-cols-12 md:gap-20 items-start">
-          <Reveal className="md:col-span-5">
+        <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-12 md:items-stretch md:gap-20">
+          <Reveal className="md:col-span-5 md:flex md:h-full md:flex-col">
             <p className="eyebrow">The House</p>
             <div className="gold-rule mt-4 w-16" />
             <img
-              src={img.facade}
-              alt="Maharaja Palassio illuminated in the evening"
+              src={houseSectionPhoto}
+              alt="Elegant lounge and dining room inside Maharaja Palassio"
               loading="lazy"
               decoding="async"
-              className="mt-10 hidden aspect-[4/3] w-full object-cover md:block"
+              className="mt-10 hidden min-h-0 w-full flex-1 object-cover md:block"
             />
           </Reveal>
           <Reveal delay={150} className="md:col-span-7">
