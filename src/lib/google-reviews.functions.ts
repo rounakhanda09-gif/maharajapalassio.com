@@ -50,8 +50,6 @@ const ANURAG_REVIEW: GoogleReview = {
   name: "Anurag Samuel Chaudhary",
   rating: 5,
   when: "3 years ago",
-  photo:
-    "https://lh3.googleusercontent.com/a-/ALV-UjW5b9Yoz_m5dO9NrPbZrJP7BRHe2bZj05ZtVIrU7t2lkvW-1EolOA=s64-c-rp-mo-ba12-br100",
   url: "https://www.google.com/maps/contrib/103009745270297297220/reviews?hl=en-US",
 };
 
